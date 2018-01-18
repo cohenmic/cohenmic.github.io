@@ -1,120 +1,124 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>website!!!</title>
-		<link rel="stylesheet" href="styles.css" type="text/css">
-	</head>
-	<body>
-	<section>
-		<h3>Part 1. The table.</h3>
-		<table>
-			<caption>Examples of various foods that are the specified color</caption>
-			<thead>
-				<tr>
-					<th></th>
-					<th>fruit</th>
-					<th>vegetables</th>
-					<th>soda</th>
-					<th>candy</th>
-					<th>ice cream</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr><th>red</th><td>strawberry</td><td>tomato</td><td>Fanta cherry</td><td>twizzlers</td><td>red velvet flavored</td></tr>
-				<tr><th>orange</th><td>clementine</td><td>carrot</td><td>orange soda</td><td>circus peanuts</td><td>pumpkin flavored</td></tr>
-				<tr><th>yellow</th><td>lemon</td><td>yellow squash</td><td>mountain dew</td><td>lemonheads</td><td>lemon flavored</td></tr>
-				<tr><th>green</th><td>kiwi</td><td>zucchini</td><td>Jones green apple</td><td>spearmint leaves</td><td>pistachio</td></tr>
-				<tr><th>purple</th><td>grapes</td><td>eggplant</td><td>grape soda</td><td>grapeheads</td><td>Tillamook blackberry</td></tr>
-			</tbody><tfoot>
-				<tr>
-					<td colspan="2"> Eating rainbow is very important!</td><td colspan="4">However, just because you're eating a rainbow doesn't mean it's healthy. Eating a variety of candy colors is not beneficial.</td>
-				</tr>
-			</tfoot>
-
-		</table>
-	</section>
-	<section>
-		<h3>Part 2. The List. </h3>
-			<h6>My favorite places in Oregon</h6>
-			<ul>
-				<li>Columbia gorge</li>
-				<li>Pilot Rock (near Ashland)</li>
-				<li>Mt. McLoughlin</li>
-				<li>Toketee Falls</li>
-				<li>Applegate Valley</li>
-			</ul>
-	</section>
-	<section>
-		<h3>Part 3. The div. </h3>
-		<div class="outer-content">
-			<div class="inner-content">This is Part 3.
-			</div>
-		</div>
-	</section>
-	<section>
-		<h3>Part 4. Forms</h3>
-		<section>
-			<h5>POST Form</h5>
-		<form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="post">
-			<fieldset><legend>Personal Data:</legend>
-			<label>Your name:
-				<input type="text" name="text_input" size="20" maxlength="20">
-			</label>
-			<label>Your age:
-				<input type="number" name="numerical_input" max="120" min="0">
-			</label>
-			<label>Password:
-				<input type="password" name="password_input" size="25" minlength="5" maxlength="25">
-			</label>
-			</fieldset>
-			<fieldset><legend>Food Preference</legend>
-			<p>Favorite candy:
-				<label>
-					<input type="radio" name="candy" value="Snickers"/>Snickers
-				</label>
-				<label>
-					<input type="radio" name="candy" value="Skittles"/>Skittles
-				</label>
-				<label>
-					<input type="radio" name="candy" value="Mentos"/>Mentos
-				</label>
-			</p>
-			</fieldset>
-			<input type="submit" value="Submit" />
-		</form>
-		</section>
-		<section>
-			<h5>GET Form</h5>
-		<form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
-			<fieldset><legend>Personal Data:</legend>
-			<label>Your name:
-				<input type="text" name="text_input" size="20" maxlength="20">
-			</label>
-			<label>Your age:
-				<input type="number" name="numerical_input" max="120" min="0">
-			</label>
-			<label>Password:
-				<input type="password" name="password_input" size="25" minlength="5" maxlength="25">
-			</label>
-			</fieldset>
-			<fieldset><legend>Food Preference</legend>
-			<p>Favorite candy:
-				<label>
-					<input type="radio" name="candy" value="Snickers"/>Snickers
-				</label>
-				<label>
-					<input type="radio" name="candy" value="Skittles"/>Skittles
-				</label>
-				<label>
-					<input type="radio" name="candy" value="Mentos"/>Mentos
-				</label>
-			</p>
-			</fieldset>
-			<input type="submit" value="Submit" />
-		</form>
-	</section>
-</section>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Assignment 1 Michelle Cohen CS290</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+  </head>
+  <body>
+    <section>
+      <h3>Part 1. The table.</h3>
+      <table>
+        <caption>Examples of various foods that are the specified color</caption>
+        <thead>
+          <tr>
+            <th></th>
+            <th>fruit</th>
+            <th>vegetables</th>
+            <th>soda</th>
+            <th>candy</th>
+            <th>ice cream</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>red</th><td>strawberry</td><td>tomato</td><td>Fanta cherry</td><td>twizzlers</td><td>red velvet flavored</td></tr>
+          <tr><th>orange</th><td>clementine</td><td>carrot</td><td>orange soda</td><td>circus peanuts</td><td>pumpkin flavored</td></tr>
+          <tr><th>yellow</th><td>lemon</td><td>yellow squash</td><td>mountain dew</td><td>lemonheads</td><td>lemon flavored</td></tr>
+          <tr><th>green</th><td>kiwi</td><td>zucchini</td><td>Jones green apple</td><td>spearmint leaves</td><td>pistachio</td></tr>
+          <tr><th>purple</th><td>grapes</td><td>eggplant</td><td>grape soda</td><td>grapeheads</td><td>Tillamook blackberry</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2"> Eating rainbow is very important!</td>
+            <td colspan="4">However, just because you're eating a rainbow doesn't mean it's healthy. Eating a variety of candy colors is not beneficial.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <section>
+      <h3>Part 2. The List. </h3>
+      <h6>My favorite places in Oregon</h6>
+      <ul>
+        <li>Columbia gorge</li>
+        <li>Pilot Rock (near Ashland)</li>
+        <li>Mt. McLoughlin</li>
+        <li>Toketee Falls</li>
+        <li>Applegate Valley</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Part 3. The div. </h3>
+      <div class="outer-content">
+        <div class="inner-content">This is Part 3</div>
+      </div>
+    </section>
+    <section>
+      <h3>Part 4. Forms</h3>
+      <section>
+        <h5>POST Form</h5>
+        <form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="post">
+          <fieldset>
+            <legend>Personal Data:</legend>
+            <label>Your name:
+              <input type="text" name="text_input" size="20" maxlength="20">
+            </label>
+            <label>Your age:
+              <input type="number" name="numerical_input" max="120" min="0">
+            </label>
+            <label>Password:
+              <input type="password" name="password_input" size="25" minlength="5" maxlength="25">
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Food Preference</legend>
+            <p>Favorite candy:
+              <label>
+                <input type="radio" name="candy" value="Snickers"/>Snickers
+              </label>
+              <label>
+                <input type="radio" name="candy" value="Skittles"/>Skittles
+              </label>
+              <label>
+                <input type="radio" name="candy" value="Mentos"/>Mentos
+              </label>
+            </p>
+          </fieldset>
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+      <section>
+        <h5>GET Form</h5>
+        <form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+          <fieldset>
+            <legend>Personal Data:</legend>
+            <label>Your name:
+              <input type="text" name="text_input" size="20" maxlength="20">
+            </label>
+            <label>Your age:
+              <input type="number" name="numerical_input" max="120" min="0">
+            </label>
+            <label>Password:
+              <input type="password" name="password_input" size="25" minlength="5" maxlength="25">
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Food Preference</legend>
+            <p>Favorite candy:
+              <label>
+                <input type="radio" name="candy" value="Snickers"/>Snickers
+              </label>
+              <label>
+                <input type="radio" name="candy" value="Skittles"/>Skittles
+              </label>
+              <label>
+                <input type="radio" name="candy" value="Mentos"/>Mentos
+              </label>
+            </p>
+          </fieldset>
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+    </section>
+  </body>
 </html>
 
