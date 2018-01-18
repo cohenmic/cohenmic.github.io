@@ -1,0 +1,43 @@
+table {
+	/*border: 1px solid black;
+	background-color:yellow; */
+	border-style:solid;
+}
+
+th,td {
+	border-style:solid;
+}
+
+table>tbody>tr>th {
+	font-weight:normal;
+	font-style:italic;
+}
+
+table>tbody>tr:nth-child(odd){
+	background-color:lime;
+}
+
+table>tbody>tr:nth-child(even){
+	background-color:yellow;
+}
+
+table>tfoot {
+	background-color:cyan;
+}
+table>tfoot>tr>td {
+	border:1px solid black;
+}
+
+div.outer-content {
+/*	position:relative;
+	top:20px; */
+	width:75%;
+	background-color:pink;
+}
+
+div.outer-content>div.inner-content {
+	background-color:blue;
+	position:relative;
+	left:12.5%;
+	width:75%;
+}
