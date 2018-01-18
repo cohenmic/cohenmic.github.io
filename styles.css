@@ -1,43 +1,45 @@
 table {
-	/*border: 1px solid black;
-	background-color:yellow; */
-	border-style:solid;
+	border: 1px solid black;
+	/*background-color:yellow; 
+	border-style:solid; */
 }
 
 th,td {
-	border-style:solid;
+	/*border-style:solid; */
+	border: 1px solid black;
 }
 
 table>tbody>tr>th {
-	font-weight:normal;
-	font-style:italic;
+	font-style: italic;
+	font-weight: normal;
 }
 
 table>tbody>tr:nth-child(odd){
-	background-color:lime;
+	background-color: lime;
 }
 
 table>tbody>tr:nth-child(even){
-	background-color:yellow;
+	background-color: yellow;
 }
 
 table>tfoot {
-	background-color:cyan;
+/*	background-color:cyan; */
 }
 table>tfoot>tr>td {
-	border:1px solid black;
+	border: 1px solid black;
 }
 
 div.outer-content {
-/*	position:relative;
-	top:20px; */
-	width:75%;
-	background-color:pink;
+	background-color: pink;
+	margin-top:20px;
+	padding: 10px 0px; /*top and bottom are 10, right and left 0 */
+	width: 75%;
 }
 
 div.outer-content>div.inner-content {
-	background-color:blue;
-	position:relative;
-	left:12.5%;
-	width:75%;
+	background-color: cornflowerblue;
+	left: 12.5%;
+	position: relative;
+	text-align: center;
+	width: 75%;
 }
