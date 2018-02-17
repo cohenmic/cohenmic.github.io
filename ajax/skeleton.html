@@ -20,7 +20,7 @@
   var req = new XMLHttpRequest();
   req.open('GET','http://api.openweathermap.org/data/2.5/weather?zip=97504,us&appid=fa7d80c48643dfadde2cced1b1be6ca1', false);
   req.send(null);
-  req.setRequestHeader("Content-Type","application/json");
+ // req.setRequestHeader("Content-Type","application/json");
   console.log(req.responseText);
   //req.send(null);
   console.log(JSON.parse(req.responseText));
@@ -30,5 +30,6 @@
     </section -->
 	</head>
 	<body>
+Hello
 	</body>
 </html>
