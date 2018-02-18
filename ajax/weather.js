@@ -1,8 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', bindButtons);
 
+
 function bindButtons(){
-  console.log("calling bind buttons");
   document.getElementById('submitWx').addEventListener('click',function(event){
     getWeatherFromZip(document.getElementById('wxForm').elements.zipCode.value);
     console.log("zip code is "+document.getElementById('wxForm').elements.zipCode.value);
@@ -11,15 +11,20 @@ function bindButtons(){
 }
 
 function getWeatherFromZip(zip){
+  console.log("called getWx from zip");
   var apiKey = 'fa7d80c48643dfadde2cced1b1be6ca1';
   var req = new XMLHttpRequest();
   zip = String(zip);
+  console.log("zip is "+zip);
   var url = 'https://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&appid='+apiKey;
+  console.log("url is "+url);
   req.open('GET',url,true);
   req.setRequestHeader('Content-Type','application/json');
-  req.send(null); 
+//  req.send(null); 
   req.addEventListener('load',function(){
+    console.log("loaddeeed");
     if(req.status>=200 && req.status<400){
+      console.log("loaded yay");
       var json = JSON.parse(req.responseText);
       document.getElementById('locName').textContent = "Location Name: "+json.name;
       document.getElementById('tempValue').textContent = "Temperature: "+kToF(json.main.temp)+"F";
