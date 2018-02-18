@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>title</title>
+    <script>"weather.js"</script>
 		<!--link rel="stylesheet" href="stylesheet.css" type="text/css" -->
 	</head>
 	<body>
@@ -14,7 +15,7 @@
         <label>Zip Code:
           <input type="text" name="zipCode" size="5" maxlength="5">
         </label>
-        <button type="submit">Get Weather!</button>
+        <button type="submit" id="submitWx">Get Weather!</button>
       </fieldset>
       </form>
 
@@ -25,37 +26,6 @@
           <p id="windVal"></p>
       </section>
 
-<script>
-  //var form=document.querySelector("form");
-  var wxForm = document.getElementById("wxForm");
-  wxForm.addEventListener("submit",function(event){
-    getWeatherFromZip(wxForm.elements.zipCode.value);
-    
- //   console.log("Zip code is "+form.elements.zipCode.value);
-    event.preventDefault();
-  });
-
-  function getWeatherFromZip(zip){
-    var req = new XMLHttpRequest();
-    zip = String(zip);
-    var url = 'https://api.openweathermap.org/data/2.5/weather?zip='+zip+',us&appid=fa7d80c48643dfadde2cced1b1be6ca1';
-    //req.open('GET','https://api.openweathermap.org/data/2.5/weather?zip=97504,us&appid=fa7d80c48643dfadde2cced1b1be6ca1', false);
-    req.open('GET', url, false);
-    req.send(null); 
- // req.setRequestHeader("Content-Type","application/json");
-    var json=JSON.parse(req.responseText);
-    document.getElementById('locName').textContent = "Location Name: "+json.name;
-    document.getElementById('tempValue').textContent = "Temperature: "+kToF(json.main.temp)+"F";
-    document.getElementById('windVal').textContent = "Wind Speed: "+json.wind.speed+" MPH";
-  }
-
-  function kToF(temp){
-    temp=Number(temp);
-    temp=temp-273.15;
-    temp = 1.8*temp + 32;
-    return String(temp.toFixed(2));
-  }
-</script>
     </section>
 	</body>
 </html>
