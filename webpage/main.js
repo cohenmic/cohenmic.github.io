@@ -18,8 +18,35 @@ function toggleDropdown(e){
   //save current status in a variable, then hide em all, then show current, or do nothing
   
 	console.log("should be showing list");
+  var activeElm;
+  console.log(e.target.tagName);
+  if (e.target.tagName == "A")
+    activeElm = e.target.parentElement;
+  else
+    activeElm = e.target;
+
   var currentExpanded;
-  if (e.target.querySelector("ul.dropdownContent").getAttribute('data-expanded') == "true")
+  if (activeElm.querySelector("ul.dropdownContent").getAttribute('data-expanded') == "true")
+    currentExpanded = true;
+  else
+    currentExpanded = false;
+
+  var children = activeElm.parentElement.querySelectorAll('li.dropdown > ul.dropdownContent'); //target is the li, then parent is the ul (horizontal)
+  for (var i=0;i<children.length;i++){
+      children[i].setAttribute("data-expanded","false");
+      children[i].style.display = "none";
+  }
+  //now deal with the current one
+  if(currentExpanded){
+    activeElm.querySelector("ul.dropdownContent").style.display = "none";
+    activeElm.querySelector("ul.dropdownContent").setAttribute("data-expanded","false");
+  }
+  else{
+    activeElm.querySelector("ul.dropdownContent").style.display = "block";
+    activeElm.querySelector("ul.dropdownContent").setAttribute("data-expanded","true");
+  }
+  
+/*  if (e.target.querySelector("ul.dropdownContent").getAttribute('data-expanded') == "true")
     currentExpanded = true;
   else
     currentExpanded = false;
@@ -38,6 +65,7 @@ function toggleDropdown(e){
     e.target.querySelector("ul.dropdownContent").style.display = "block";
     e.target.querySelector("ul.dropdownContent").setAttribute("data-expanded","true");
   }
+*/
 }
 function clearDropdowns(){
   //save current status in a variable, then hide em all, then show current, or do nothing

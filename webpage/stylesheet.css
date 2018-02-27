@@ -1,5 +1,6 @@
 body {
   margin:0;
+  font-family:"Helvetica","Trebuchet MS","Verdana";
 }
 section#slideSection>img#theSlide {
   height:auto;width:100%; 
@@ -7,6 +8,7 @@ section#slideSection>img#theSlide {
 nav#topNav {
   background-color:black;
   height:50px;width:100%;
+  position:static;
 }
 nav#topNav>a>img#brand {
   float:left;
@@ -20,23 +22,50 @@ nav#topNav>a.main {
   text-decoration:none;
 }
 nav#topNav>ul.horizontal {
-  float:right;
-  display:inline;
+  float:right; 
+  /*display:inline; */
   list-style:none;
 }
+
+nav#topNav>ul.horizontal>li>a {
+  color:yellow;
+/*  display:block; */
+  font-size:20px;
+  font-style:bold;
+  padding:15px 5px 15px 5px;
+/*  position:relative; */
+  text-decoration:none;
+}
+
+nav#topNav>ul.horizontal>li>a:hover {
+  color:lime;
+}
+
 nav#topNav>ul.horizontal>li {
   color:lime;
   display:inline;
+  position:relative;
 }
 
-nav#topNav>ul.horizontal>li.dropdown {
-  color:yellow;
-}
-
-nav#topNav>ul.horizontal>li>ul.dropdownContent {
+nav#topNav>ul.horizontal>li.dropdown>ul.dropdownContent {
+  box-shadow:6px 12px red;
   display:none;
-}
-nav#topNav>ul.horizontal>li>ul.dropdownContent>li {
-  color:orange;
+  left:5px;
+  list-style-type:none;
+  padding:5px 0px 5px 0px;
+  position:absolute;
+  top:100%;
 }
 
+nav#topNav>ul.horizontal>li.dropdown>ul.dropdownContent>li>a {
+  background-color:white;
+  color:orange;
+  display:block;
+  font-style:bold;
+  font-weight:bold;
+  text-decoration:none;
+}
+nav#topNav>ul.horizontal>li.dropdown>ul.dropdownContent>li>a:hover {
+  background-color:navy;
+  color:pink;
+}

@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
+
 var main = document.body.querySelector("main");
 
 var myImgs = ["images/boulderCreekLakeSlide.jpg","images/canyonCreekSlide.jpg","images/grizzlyLakeSlide.jpg"];
