@@ -1,0 +1,42 @@
+body {
+  margin:0;
+}
+section#slideSection>img#theSlide {
+  height:auto;width:100%; 
+}
+nav#topNav {
+  background-color:black;
+  height:50px;width:100%;
+}
+nav#topNav>a>img#brand {
+  float:left;
+  height:50px;
+}
+nav#topNav>a.main {
+  color:pink;
+  display:inline-block;
+  font-size:30px;
+  padding:10px 5px 10px 5px;
+  text-decoration:none;
+}
+nav#topNav>ul.horizontal {
+  float:right;
+  display:inline;
+  list-style:none;
+}
+nav#topNav>ul.horizontal>li {
+  color:lime;
+  display:inline;
+}
+
+nav#topNav>ul.horizontal>li.dropdown {
+  color:yellow;
+}
+
+nav#topNav>ul.horizontal>li>ul.dropdownContent {
+  display:none;
+}
+nav#topNav>ul.horizontal>li>ul.dropdownContent>li {
+  color:orange;
+}
+
