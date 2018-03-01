@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', bindButtons);
 
 function bindButtons(){
-  var buttonDrops = document.querySelectorAll("li.dropdown");
+  var buttonDrops = document.querySelectorAll("li.dropdown>a");
   for (var i=0;i<buttonDrops.length;i++)
     buttonDrops[i].addEventListener("click", toggleDropdown);
 

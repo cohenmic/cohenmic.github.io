@@ -1,0 +1,105 @@
+body {
+  margin:0;
+  font-family:"Helvetica","Trebuchet MS","Verdana";
+}
+section#slideSection>img#theSlide {
+  max-height:80%;width:100%; 
+}
+article.trail>header#grizzlyHeader {
+  background-image: url('/images/grizzlyLakeSlide.jpg');
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  height:550px;
+  position:relative;
+}
+
+article.trail>header>h1.title {
+  background-color:rgba(256,256,256,0.5);
+  bottom:0px;
+  display:block;
+  font-size:50px;
+  font-weight:bold;
+  margin:0px 0px;
+  position:absolute;
+  width:100%;
+}
+
+article.trail>section.text {
+  float:left;
+  width:80%;
+}
+
+article.trail>section.text+section.gpx {
+  color:lime;
+  background-color:black;
+  float:right;
+  width:20%;
+}
+  
+nav#topNav {
+  background-color:black;
+  height:50px;width:100%;
+  position:static;
+}
+nav#topNav>a>img#brand {
+  float:left;
+  height:50px;
+}
+nav#topNav>a.main {
+  color:pink;
+  display:inline-block;
+  font-size:30px;
+  padding:10px 5px 10px 5px;
+  text-decoration:none;
+}
+nav#topNav>ul.horizontal {
+  float:right; 
+  /*display:inline; */
+  list-style:none;
+  -webkit-margin-after:0.8em;
+  -webkit-margin-before:0.8em;
+}
+
+nav#topNav>ul.horizontal>li>a {
+  color:yellow;
+/*  display:block; */
+  font-size:20px;
+  font-style:bold;
+  padding:15px 5px 15px 5px;
+/*  position:relative; */
+  text-decoration:none;
+}
+
+nav#topNav>ul.horizontal>li>a:hover {
+  color:lime;
+}
+
+nav#topNav>ul.horizontal>li {
+  color:lime;
+  display:inline;
+  position:relative;
+}
+
+nav#topNav>ul.horizontal>li.dropdown>ul.dropdownContent {
+  box-shadow:6px 12px red;
+  display:none;
+  left:5px;
+  list-style-type:none;
+  padding:5px 0px 5px 0px;
+  position:absolute;
+  top:100%;
+  z-index:100;
+}
+
+nav#topNav>ul.horizontal>li.dropdown>ul.dropdownContent>li>a {
+  background-color:white;
+  color:orange;
+  display:block;
+  font-style:bold;
+  font-weight:bold;
+  text-decoration:none;
+}
+nav#topNav>ul.horizontal>li.dropdown>ul.dropdownContent>li>a:hover {
+  background-color:navy;
+  color:pink;
+}
