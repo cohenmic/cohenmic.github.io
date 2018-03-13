@@ -1,0 +1,136 @@
+<h1>page with submit button</h1>
+<button id="show">Show Database</button>
+<form id="todoForm">
+	<fieldset>
+		<legend>My ToDo List:</legend>
+		<label>Enter Name:
+			<input type="text" name="name" size="20" maxlength="20">
+		</label>
+		<label>Enter done status:
+			<input type="text" name="done" size="1" maxlength="1">
+		</label>
+		<label>Enter due date:
+			<input type="text" name="due" size="10" maxlength="10">
+		</label>
+		<button type="submit" id="submitForm">Submit</button>
+	</fieldset>
+</form>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', showTable);
+
+document.getElementById("submitForm").addEventListener("click", function() {
+	var req = new XMLHttpRequest();
+	var name = document.getElementById('todoForm').elements.name.value;
+	var done = document.getElementById('todoForm').elements.done.value;
+	var due = document.getElementById('todoForm').elements.due.value;
+	var url ="/insert?name="+name+"&done="+done+"&due="+due;
+	//var url ="/insert?name="+name;
+	req.open('GET',url,true);
+	req.addEventListener('load',function(){
+		if(req.status>=200 && req.status<400){
+			var json = JSON.parse(req.responseText);
+			if (json.length >=1)
+				//makeTable(json);		
+			console.log("json.length is "+json.length);
+			//console.log("req.responseText is "+req.responseText);
+		}
+		addToTable()
+	});
+	req.send(null);
+});
+
+document.getElementById("show").addEventListener("click",function(){
+	var req = new XMLHttpRequest();
+	var url ="/show";
+	req.open('GET',url,true);
+	req.addEventListener('load',function(){
+		if(req.status>=200 && req.status<400){
+			var json = JSON.parse(req.responseText);
+			if (json.length >=1)
+				makeTable(json, "mainTable");		
+		}
+	});
+	req.send(null);
+});
+
+function showTable(){
+	var req = new XMLHttpRequest();
+	var url ="/show";
+	req.open('GET',url,true);
+	req.addEventListener('load',function(){
+		if(req.status>=200 && req.status<400){
+			var json = JSON.parse(req.responseText);
+			if (json.length >=1)
+				makeTable(json);		
+		}
+	});
+	req.send(null);
+}
+
+function makeRow(tbody, objectIn){
+	var newRow = document.createElement('tr');
+	newRow.setAttribute("id","row_"+objectIn.id);
+	for (var key in objectIn){
+		var newCell = document.createElement('td');
+		newCell.textContent = objectIn[key];
+		newRow.appendChild(newCell);
+	}
+	var deleteCell = makeDeleteCell(objectIn.id, newRow, tbody);
+	newRow.appendChild(deleteCell);
+	tbody.appendChild(newRow);
+}
+
+
+function makeTable(json, id){
+	console.log("making table");
+	var keys = [];
+	for (key in json[0])
+		keys.push(key);
+	var myTable = document.createElement('table');
+	var head = document.createElement('thead');
+	var newRow = document.createElement('tr');
+	for (var i=0;i<keys.length;i++){
+		var cell = document.createElement('th');
+		cell.textContent = keys[i];
+		newRow.appendChild(cell);
+	}
+	head.appendChild(newRow);
+	myTable.appendChild(head);
+	var tbody = document.createElement('tbody');
+
+	for (var i=0;i<json.length;i++)
+		makeRow(tbody,json[i]);
+	myTable.appendChild(tbody);
+	myTable.setAttribute("id",id);
+	document.body.appendChild(myTable);
+}
+
+function makeDeleteCell(id, row, table){
+	var deleteCell = document.createElement('td');
+	deleteCell.className += "deleteCell";
+	var deleteButton = document.createElement('button');
+	deleteButton.setAttribute("id",id);
+	deleteButton.textContent = "delete";
+	deleteButton.addEventListener("click", function(e){
+		console.log(e.target.id);
+		table.removeChild(row);
+		var req = new XMLHttpRequest();
+		var url ="/delete?id="+e.target.id;
+		req.open('GET',url,true);
+		req.addEventListener('load',function(){
+			if(req.status>=200 && req.status<400){
+				console.log(req.responseText);
+			}
+		});
+		req.send(null);
+	});
+	deleteCell.appendChild(deleteButton);
+	return deleteCell;
+}
+
+	
+</script>
+		
+
