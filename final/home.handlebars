@@ -1,6 +1,6 @@
 <h1>page with submit button</h1>
 <button id="show">Show Database</button>
-<form id="todoForm">
+<form id="addForm">
 	<fieldset>
 		<legend>My ToDo List:</legend>
 		<label>Enter Name:
@@ -12,7 +12,7 @@
 		<label>Enter due date:
 			<input type="text" name="due" size="10" maxlength="10">
 		</label>
-		<button type="submit" id="submitForm">Submit</button>
+		<button type="submit">Submit</button>
 	</fieldset>
 </form>
 
@@ -20,26 +20,32 @@
 
 document.addEventListener('DOMContentLoaded', showTable);
 
-document.getElementById("submitForm").addEventListener("click", function() {
+document.getElementById("addForm").addEventListener("submit", function(e) {
+	var form = document.getElementById("addForm");
 	var req = new XMLHttpRequest();
-	var name = document.getElementById('todoForm').elements.name.value;
-	var done = document.getElementById('todoForm').elements.done.value;
-	var due = document.getElementById('todoForm').elements.due.value;
+	var name = form.elements.name.value;
+	var done = form.elements.done.value;
+	var due = form.elements.due.value;
 	var url ="/insert?name="+name+"&done="+done+"&due="+due;
-	//var url ="/insert?name="+name;
 	req.open('GET',url,true);
 	req.addEventListener('load',function(){
 		if(req.status>=200 && req.status<400){
 			var json = JSON.parse(req.responseText);
-			if (json.length >=1)
-				//makeTable(json);		
+			if (json.length >=1){
+				var myTable = document.getElementById('myTable');
+				addToTable(json, myTable);
+			}
 			console.log("json.length is "+json.length);
-			//console.log("req.responseText is "+req.responseText);
 		}
-		addToTable()
 	});
 	req.send(null);
+	e.preventDefault();
 });
+
+function addToTable(objectIn, myTable){
+	var tbody = myTable.querySelector(tbody);
+	makeRow(tbody, objectIn);
+}
 
 document.getElementById("show").addEventListener("click",function(){
 	var req = new XMLHttpRequest();
@@ -63,7 +69,8 @@ function showTable(){
 		if(req.status>=200 && req.status<400){
 			var json = JSON.parse(req.responseText);
 			if (json.length >=1)
-				makeTable(json);		
+				makeTable(json); 
+				//add event listener for tableAdd function here?
 		}
 	});
 	req.send(null);
