@@ -1,3 +1,6 @@
+/* maybe, when you click edit, you replace the row with a form ...
+
+
 
 var myTable = document.createElement('table');
 myTable.setAttribute("id","myTable");
@@ -32,14 +35,27 @@ editButton.textContent = "edit";
 form.appendChild(editButton);
 myRow.appendChild(form);
 
-
 	
 myTable.appendChild(myRow);
 
 document.body.appendChild(myTable);
 var form = document.querySelector("#row2>form");
 form.addEventListener("submit", function(e){
+	var submitButton = document.createElement("button");
+  submitButton.textContent = "submit";
+  document.body.appendChild(submitButton);
+ //submitButton.addEventListener("click",function(){
+  	//console.log(
 	var rowTarg = e.target.parentElement;
+  var initial = rowTarg.children[0].textContent;
+  rowTarg.children[0].innerHTML = '<input type="text" name="newVal" value='+initial+'>';
+    e.preventDefault();
+ // form.appendChild(rowTarg);
+  submitButton.addEventListener("click",function(){
+  	var newText = rowTarg.children[0].newVal.value;
+    rowTarg.children[0].innerHTML='<td>'+newText+'</td>';
+    });
+    
   console.log(rowTarg.innerHTML);
-  e.preventDefault();
+//  e.preventDefault();
 }); 
