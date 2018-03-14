@@ -1,0 +1,45 @@
+
+var myTable = document.createElement('table');
+myTable.setAttribute("id","myTable");
+var myRow = document.createElement('tr');
+myRow.setAttribute("id","row1");
+var myCell = document.createElement('td');
+myCell.textContent = "a1";
+myRow.appendChild(myCell);
+myCell = document.createElement('td');
+myCell.textContent = "b1";
+myRow.appendChild(myCell);
+var form = document.createElement('form');
+var editButton = document.createElement('button');
+editButton.setAttribute("type","submit");
+editButton.textContent = "edit";
+form.appendChild(editButton);
+myRow.appendChild(form);
+myTable.appendChild(myRow);
+
+myRow = document.createElement('tr');
+myRow.setAttribute("id","row2");
+myCell = document.createElement('td');
+myCell.textContent = "a2";
+myRow.appendChild(myCell);
+myCell = document.createElement('td');
+myCell.textContent = "b2";
+myRow.appendChild(myCell);
+form = document.createElement('form');
+editButton = document.createElement('button');
+editButton.setAttribute("type","submit");
+editButton.textContent = "edit";
+form.appendChild(editButton);
+myRow.appendChild(form);
+
+
+	
+myTable.appendChild(myRow);
+
+document.body.appendChild(myTable);
+var form = document.querySelector("#row2>form");
+form.addEventListener("submit", function(e){
+	var rowTarg = e.target.parentElement;
+  console.log(rowTarg.innerHTML);
+  e.preventDefault();
+}); 
