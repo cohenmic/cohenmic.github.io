@@ -114,7 +114,7 @@ function makeTable(json, id){
 	document.body.appendChild(myTable);
 }
 
-function makeDeleteCell(id, row, table){
+function makeDeleteCell(id, row, tbody){
 	var deleteCell = document.createElement('td');
 	deleteCell.className += "deleteCell";
 	var deleteButton = document.createElement('button');
@@ -122,7 +122,7 @@ function makeDeleteCell(id, row, table){
 	deleteButton.textContent = "delete";
 	deleteButton.addEventListener("click", function(e){
 		console.log(e.target.id);
-		table.removeChild(row);
+		tbody.removeChild(row);
 		var req = new XMLHttpRequest();
 		var url ="/delete?id="+e.target.id;
 		req.open('GET',url,true);
@@ -136,6 +136,22 @@ function makeDeleteCell(id, row, table){
 	deleteCell.appendChild(deleteButton);
 	return deleteCell;
 }
+
+function makeEditCell(id, row, tbody){
+	var editCell = document.createElement('td');
+	editCell.className += "editCell";
+	var editForm = document.createElement('form');
+	var editButton = document.createElement('button');
+	editButton.setAttribute("type","submit");
+	editForm.appendChild(editButton);
+	editForm.addEventListener("submit", function(e){
+		console.log("submitted edit form");
+		e.preventDefault();
+		});
+	row.appendChild(editCell);
+	}
+	
+
 
 	
 </script>
